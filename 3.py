@@ -58,14 +58,12 @@ def remove_duplicates(nums1):
     :type nums1: List[int]
     :rtype: int
     """
-    index = 1
-    l1: int | Any = nums[0]
-    for i1 in range(1, len(nums)):
-        if l1 != nums[i1]:
-            nums[index] = nums[i1]
-            index += 1
-            l1 = nums[i1]
-    return index
+    k1 = 1
+    for i in range(1, len(nums)):
+        if nums[k1 - 1] != nums[i]:
+            nums[k1] = nums[i]
+            k1 += 1
+    return k1
 
 
 nums = [1, 2, 2, 0, 5, 9, 4, 4, 3, 3, 3]  # Input array
