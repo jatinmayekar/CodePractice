@@ -59,7 +59,7 @@ def remove_duplicates(nums1):
     :rtype: int
     """
     k1 = 1
-    for i in nums:
+    for i in nums[1:]:
         if nums[k1 - 1] != i:
             nums[k1] = i
             k1 += 1
