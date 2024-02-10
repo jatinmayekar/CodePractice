@@ -50,18 +50,22 @@
 # 1 <= nums.length <= 3 * 104
 # -100 <= nums[i] <= 100
 # nums is sorted in non-decreasing order.
+from typing import Any
+
+
 def remove_duplicates(nums1):
     """
     :type nums1: List[int]
     :rtype: int
     """
-    i1 = 0
-    while i1 < len(nums1) - 1:
-        if nums1[i1] == nums1[i1 + 1]:
-            nums1.remove(nums1[i1])
-        else:
-            i1 += 1
-    return len(nums1)
+    index = 1
+    l1: int | Any = nums[0]
+    for i1 in range(1, len(nums)):
+        if l1 != nums[i1]:
+            nums[index] = nums[i1]
+            index += 1
+            l1 = nums[i1]
+    return index
 
 
 nums = [1, 2, 2, 0, 5, 9, 4, 4, 3, 3, 3]  # Input array
